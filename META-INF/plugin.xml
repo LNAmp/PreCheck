@@ -1,0 +1,52 @@
+<idea-plugin version="2">
+  <id>cn.david.plugin.precheck</id>
+  <name>PreCheck</name>
+  <version>1.0</version>
+  <vendor email="daichao611@163.com" url="https://github.com/LNAmp">David</vendor>
+
+  <description><![CDATA[
+      快速生成Maven的依赖树文件.<br>
+
+    ]]></description>
+
+  <change-notes><![CDATA[
+
+    ]]>
+  </change-notes>
+
+  <!-- please see https://confluence.jetbrains.com/display/IDEADEV/Build+Number+Ranges for description -->
+  <idea-version since-build="131"/>
+
+  <!-- please see https://confluence.jetbrains.com/display/IDEADEV/Plugin+Compatibility+with+IntelliJ+Platform+Products
+       on how to target different products -->
+  <!-- uncomment to enable plugin in all products
+  <depends>com.intellij.modules.lang</depends>
+  -->
+
+  <extensions defaultExtensionNs="com.intellij">
+    <!-- Add your extensions here -->
+  </extensions>
+
+  <application-components>
+    <!-- Add your application components here -->
+  </application-components>
+
+  <project-components>
+    <!-- Add your project components here -->
+  </project-components>
+
+  <actions>
+    <!-- Add your actions here -->
+    <action id="cn.david.precheck.pomcheck.PomCheck" class="cn.david.precheck.pomcheck.PomCheck" text="PomCheck" description="Check pom">
+      <add-to-group group-id="Maven.BaseProjectMenu" anchor="first"/>
+    </action>
+    <action id="cn.david.precheck.MavenTree" class="cn.david.precheck.tree.MavenTreeAction" text="Tree"
+            description="list tree to file">
+      <add-to-group group-id="Maven.BaseProjectMenu" anchor="after"
+                    relative-to-action="cn.david.precheck.pomcheck.PomCheck"/>
+    </action>
+  </actions>
+
+  <depends>org.jetbrains.idea.maven</depends>
+
+</idea-plugin>
